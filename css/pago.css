@@ -9,14 +9,16 @@ body {
   font-size: 16px;
 }
 
-/* Encabezado */
+/* Encabezado con gradiente animado */
 header {
-  background: linear-gradient(90deg, #b00000, #8a0000); /* degradado rojo */
+  background: linear-gradient(270deg, #b00000, #8a0000, #d32f2f);
+  background-size: 400% 400%;
+  animation: moverGradiente 12s ease infinite;
   color: #fff;
   padding: 25px 20px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  border-bottom: 4px solid #ffd700; /* línea dorada */
+  border-bottom: 4px solid #ffd700;
 }
 
 header h1 {
@@ -25,12 +27,26 @@ header h1 {
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
+  animation: aparecerTexto 1.2s ease forwards;
 }
 
 header p {
   font-size: 1.1em;
   font-style: italic;
   margin-top: 5px;
+  opacity: 0;
+  animation: aparecerTexto 2s ease forwards;
+}
+
+@keyframes moverGradiente {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes aparecerTexto {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Navegación */
@@ -48,12 +64,22 @@ nav a {
   font-weight: 600;
   padding: 6px 12px;
   border-radius: 4px;
-  transition: background 0.3s, color 0.3s;
+  position: relative;
 }
 
-nav a:hover {
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
   background: #ffd700;
-  color: #b00000;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 /* Contenido principal */
@@ -64,6 +90,7 @@ main {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(176,0,0,0.2);
+  animation: aparecer 0.8s ease forwards;
 }
 
 h2 {
@@ -112,9 +139,10 @@ input[type="radio"] {
   margin-left: 10px;
 }
 
-/* Botón */
+/* Botón con brillo dinámico */
 button {
-  background: #b00000;
+  background: linear-gradient(270deg, #b00000, #ff4d4d, #ffd700);
+  background-size: 200% 200%;
   color: #fff;
   border: none;
   padding: 12px;
@@ -122,14 +150,32 @@ button {
   font-size: 1em;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+  transition: background-position 0.5s ease, transform 0.2s ease;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
 }
 
 button:hover {
-  background: #fff;
-  color: #b00000;
-  border: 2px solid #b00000;
+  background-position: right center;
   transform: scale(1.05);
+  color: #b00000;
+  background: #fff;
+  border: 2px solid #b00000;
+}
+
+button:hover::before {
+  left: 100%;
 }
 
 /* Mensaje de confirmación */
@@ -145,10 +191,21 @@ button:hover {
 
 #mensaje-confirmacion.mostrar {
   opacity: 1;
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out, pulse 1.5s infinite;
 }
 
-/* Footer */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; color: green; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Footer con glow */
 footer {
   background: #b00000;
   color: #fff;
@@ -159,8 +216,24 @@ footer {
   border-top: 4px solid #ffd700;
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.ticket-icon {
+  margin-top: 10px;
+  fill: #fff;
+  animation: girar 6s linear infinite, glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 0 2px #ffd700); }
+  to { filter: drop-shadow(0 0 8px #ffd700); }
+}
+
+/* Animación de entrada */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(40px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
