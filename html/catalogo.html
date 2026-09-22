@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo TicketPerú</title>
+  <link rel="stylesheet" href="../css/catalogo.css">
+</head>
+<body>
+  <header>
+    <h1>TicketPerú</h1>
+    <nav>
+      <a href="../index.html">Inicio</a>
+      <a href="registro.html">Registro</a>
+      <a href="pago.html">Pago</a>
+      <a href="reventa.html">Reventa</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Catálogo completo</h2>
+
+    <!-- Conciertos -->
+    <section>
+      <h3>Conciertos Internacionales</h3>
+      <div class="grid-eventos">
+        <div class="evento">
+          <img src="../img/skra.jpg" alt="Shakira World Tour">
+          <h4>Shakira World Tour</h4>
+          <p>15/10/2026 – Lima</p>
+          <p>Precio: S/350</p>
+          <button onclick="window.location.href='pago.html?evento=Shakira_World_Tour'">Comprar</button>
+        </div>
+        <div class="evento">
+          <img src="../img/clpy.jpg" alt="Coldplay Live">
+          <h4>Coldplay Live</h4>
+          <p>25/10/2026 – Lima</p>
+          <p>Precio: S/400</p>
+          <button onclick="window.location.href='pago.html?evento=Coldplay_Live'">Comprar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Música nacional -->
+    <section>
+      <h3>Música Nacional</h3>
+      <div class="grid-eventos">
+        <div class="evento">
+          <img src="../img/gp5.jpg" alt="Grupo 5 Fiesta Norteña">
+          <h4>Grupo 5 – Fiesta Norteña</h4>
+          <p>20/10/2026 – Chiclayo</p>
+          <p>Precio: S/120</p>
+          <button onclick="window.location.href='pago.html?evento=Grupo5_Fiesta_Norteña'">Comprar</button>
+        </div>
+        <div class="evento">
+          <img src="../img/festivalM.jpg" alt="Festival de Marinera">
+          <h4>Festival de Marinera</h4>
+          <p>28/10/2026 – Lima</p>
+          <p>Precio: S/90</p>
+          <button onclick="window.location.href='pago.html?evento=Festival_Marinera'">Comprar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teatro y cultura -->
+    <section>
+      <h3>Teatro y Cultura</h3>
+      <div class="grid-eventos">
+        <div class="evento">
+          <img src="../img/broadway.jpg" alt="Broadway Teatro">
+          <h4>Obra de Teatro – Broadway</h4>
+          <p>05/11/2026 – Lima</p>
+          <p>Precio: S/80</p>
+          <button onclick="window.location.href='pago.html?evento=Broadway_Teatro'">Comprar</button>
+        </div>
+        <div class="evento">
+          <img src="../img/libro.jpg" alt="Feria del Libro">
+          <h4>Feria Internacional del Libro</h4>
+          <p>25/11/2026 – Lima</p>
+          <p>Entrada libre</p>
+          <button onclick="window.location.href='pago.html?evento=Feria_Libro'">Reservar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deportes -->
+    <section>
+      <h3>Eventos Deportivos</h3>
+      <div class="grid-eventos">
+        <div class="evento">
+          <img src="../img/futbol.jpg" alt="Clásico de Fútbol">
+          <h4>Clásico Alianza vs Universitario</h4>
+          <p>18/11/2026 – Lima</p>
+          <p>Precio: S/150</p>
+          <button onclick="window.location.href='pago.html?evento=Clasico_Futbol'">Comprar</button>
+        </div>
+        <div class="evento">
+          <img src="../img/voley.jpg" alt="Sudamericano de Vóley">
+          <h4>Campeonato Sudamericano de Vóley</h4>
+          <p>22/11/2026 – Trujillo</p>
+          <p>Precio: S/100</p>
+          <button onclick="window.location.href='pago.html?evento=Sudamericano_Voley'">Comprar</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 TicketPerú</p>
+  </footer>
+  <script type="module" src="../js/registro.js"></script>
+</body>
+</html>

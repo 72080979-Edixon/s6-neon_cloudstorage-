@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reventa segura</title>
+  <link rel="stylesheet" href="../css/reventa.css">
+</head>
+<body>
+  <header>
+    <h1>TicketPerú</h1>
+    <p><em>Reventa segura</em></p>
+    <nav>
+      <a href="../index.html">Inicio</a>
+      <a href="../html/catalogo.html">Catálogo</a>
+      <a href="../html/registro.html">Registro</a>
+      <a href="../html/pago.html">Pago</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Revende tu entrada</h2>
+    <p>¿No puedes asistir? Revende tu entrada dentro de TicketPerú y garantiza seguridad en la transacción.</p>
+    
+    <form id="form-reventa">
+      <!-- Datos del vendedor -->
+      <label>Nombre completo:
+        <input type="text" name="nombre" required placeholder="Ej. Juan Pérez">
+      </label><br>
+
+      <label>Email de contacto:
+        <input type="email" name="email" required placeholder="ejemplo@correo.com">
+      </label><br>
+
+      <label>Teléfono:
+        <input type="tel" name="telefono" pattern="[0-9]{9}" required placeholder="Ej. 987654321">
+      </label><br>
+
+      <!-- Datos de la entrada -->
+      <label>Código de entrada:
+        <input type="text" name="codigo" required placeholder="Ej. TCK12345">
+      </label><br>
+
+      <label>Precio de reventa:
+        <input type="number" name="precio" min="1" required placeholder="S/">
+      </label><br>
+
+      <label>Fecha del evento:
+        <input type="date" name="fecha" required>
+      </label><br>
+
+      <!-- Motivo de reventa -->
+      <label>Motivo de reventa:
+        <select name="motivo" required>
+          <option value="">Seleccione una opción</option>
+          <option value="imposibilidad_asistencia">No puedo asistir</option>
+          <option value="cambio_plan">Cambio de planes</option>
+          <option value="otro">Otro</option>
+        </select>
+      </label><br>
+
+      <!-- Botón -->
+      <button type="submit">Revender mi entrada</button>
+    </form>
+
+    <!-- Mensaje de confirmación -->
+    <div id="mensaje-reventa"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 TicketPerú</p>
+  </footer>
+
+  <script>
+    // Script para mostrar confirmación animada
+    document.getElementById("form-reventa").addEventListener("submit", function(e){
+      e.preventDefault();
+      const nombre = this.nombre.value;
+      const codigo = this.codigo.value;
+      const precio = this.precio.value;
+      const fecha = this.fecha.value;
+      document.getElementById("mensaje-reventa").textContent =
+        `¡Gracias ${nombre}! Tu entrada ${codigo} ha sido publicada en reventa por S/${precio} para el evento del ${fecha}.`;
+      document.getElementById("mensaje-reventa").classList.add("mostrar");
+    });
+  </script>
+</body>
+</html>

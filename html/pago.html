@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pago seguro</title>
+  <link rel="stylesheet" href="../css/pago.css">
+  <script>
+    // Script para leer el parámetro "evento" de la URL
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const evento = params.get("evento");
+      if(evento) {
+        document.getElementById("evento-seleccionado").textContent =
+          "Evento seleccionado: " + evento.replace(/_/g, " ");
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>TicketPerú</h1>
+    <p><em>Pago seguro</em></p>
+    <nav>
+      <a href="../index.html">Inicio</a>
+      <a href="../html/catalogo.html">Catálogo</a>
+      <a href="../html/registro.html">Registro</a>
+      <a href="../html/reventa.html">Reventa</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Completa tu pago</h2>
+    <p id="evento-seleccionado"></p>
+    <form id="form-pago">
+      <!-- Tipo de operación -->
+      <label>Tipo de operación:
+        <select name="tipo" required>
+          <option value="compra">Compra</option>
+          <option value="reserva">Reserva</option>
+        </select>
+      </label><br>
+
+      <!-- Método de pago -->
+      <label>Método de pago:
+        <input type="radio" name="pago" value="tarjeta" required> Tarjeta
+        <input type="radio" name="pago" value="yape"> Yape
+        <input type="radio" name="pago" value="plin"> Plin
+      </label><br>
+
+      <!-- Cantidad -->
+      <label>Número de entradas:
+        <input type="number" name="cantidad" min="1" max="10" required>
+      </label><br>
+
+      <button type="submit">Confirmar</button>
+    </form>
+
+    <!-- Mensaje de confirmación -->
+    <div id="mensaje-confirmacion"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 TicketPerú</p>
+  </footer>
+
+  <script>
+    // Script para mostrar confirmación animada
+    document.getElementById("form-pago").addEventListener("submit", function(e){
+      e.preventDefault();
+      const tipo = this.tipo.value;
+      const cantidad = this.cantidad.value;
+      const evento = document.getElementById("evento-seleccionado").textContent;
+      document.getElementById("mensaje-confirmacion").textContent =
+        `¡${tipo.toUpperCase()} confirmada! ${cantidad} entrada(s) para ${evento}.`;
+      document.getElementById("mensaje-confirmacion").classList.add("mostrar");
+    });
+  </script>
+  <script type="module" src="../js/registro.js"></script>
+</body>
+</html>

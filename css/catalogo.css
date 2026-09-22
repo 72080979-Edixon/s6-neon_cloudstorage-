@@ -1,0 +1,174 @@
+/* Tipografía base */
+body {
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  background: #ffffff; /* blanco predominante */
+  color: #222;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* Encabezado */
+header {
+  background: linear-gradient(90deg, #b00000, #8a0000); /* degradado rojo */
+  color: #fff;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border-bottom: 4px solid #ffd700; /* línea dorada */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.6em;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+header p {
+  font-size: 1.2em;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+/* Navegación centrada */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  background: #ffd700;
+  color: #b00000;
+}
+
+/* Contenido principal */
+main {
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 700;
+  color: #b00000;
+  margin-bottom: 20px;
+  border-left: 6px solid #b00000;
+  padding-left: 12px;
+}
+
+h3 {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #b00000;
+  margin-bottom: 15px;
+}
+
+/* Cartelera en cuadrícula */
+.grid-eventos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.evento {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(176,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.evento:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(176,0,0,0.35);
+}
+
+.evento img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.evento img:hover {
+  transform: scale(1.05);
+}
+
+.evento h4 {
+  font-size: 1.3em;
+  font-weight: 700;
+  margin: 12px 0 6px 0;
+  color: #b00000;
+}
+
+.evento p {
+  font-size: 0.95em;
+  margin: 4px 0;
+  color: #555;
+}
+
+/* Botones estilo bandera */
+.evento button {
+  background: #b00000;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, color 0.3s;
+  margin-top: 10px;
+}
+
+.evento button:hover {
+  background: #fff;
+  color: #b00000;
+  border: 2px solid #b00000;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: #b00000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  font-size: 0.95em;
+  border-top: 4px solid #ffd700;
+}
+
+.ticket-icon {
+  margin-top: 10px;
+  fill: #fff;
+  animation: bounce 2s infinite;
+}
+
+/* Animaciones */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
